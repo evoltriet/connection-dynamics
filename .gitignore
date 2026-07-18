@@ -1,0 +1,16 @@
+.venv/
+.deps/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.env
+data/raw/
+data/interim/
+data/processed/
+artifacts/private/
+artifacts/cornell_hero.png
+artifacts/applying_to_college_hero.png
+*.parquet
+*.zip

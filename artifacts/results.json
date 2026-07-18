@@ -1,0 +1,155 @@
+{
+  "delta_combined_vs_similarity": {
+    "average_precision": 0.033456424089838024,
+    "paired_bootstrap_95": {
+      "average_precision": {
+        "iterations": 2000,
+        "lower_95": 0.014800122843867154,
+        "upper_95": 0.06499526310514062
+      },
+      "roc_auc": {
+        "iterations": 2000,
+        "lower_95": 0.019290188557314947,
+        "upper_95": 0.07137586816346776
+      }
+    },
+    "roc_auc": 0.04483454862841618
+  },
+  "features": {
+    "combined": [
+      "shared_subreddit_jaccard",
+      "lexical_topic_overlap",
+      "author_activity_balance",
+      "exposure_reply_count",
+      "reciprocity_balance",
+      "latency_symmetry",
+      "effort_balance",
+      "active_day_fraction",
+      "recency_days"
+    ],
+    "dynamics": [
+      "exposure_reply_count",
+      "reciprocity_balance",
+      "latency_symmetry",
+      "effort_balance",
+      "active_day_fraction",
+      "recency_days"
+    ],
+    "similarity": [
+      "shared_subreddit_jaccard",
+      "lexical_topic_overlap",
+      "author_activity_balance"
+    ]
+  },
+  "models": {
+    "combined": {
+      "best_iteration": 206,
+      "gain_importance": {
+        "active_day_fraction": 0.36976805329322815,
+        "author_activity_balance": 0.08221729844808578,
+        "effort_balance": 0.028715796768665314,
+        "exposure_reply_count": 0.11318472772836685,
+        "latency_symmetry": 0.027782054618000984,
+        "lexical_topic_overlap": 0.08687583357095718,
+        "recency_days": 0.2734191417694092,
+        "reciprocity_balance": 0.018037091940641403,
+        "shared_subreddit_jaccard": 0.0
+      },
+      "mean_abs_shap": {
+        "active_day_fraction": 0.064519502222538,
+        "author_activity_balance": 0.29700738191604614,
+        "effort_balance": 0.024545855820178986,
+        "exposure_reply_count": 0.10136596113443375,
+        "latency_symmetry": 0.01953158900141716,
+        "lexical_topic_overlap": 0.3433956503868103,
+        "recency_days": 0.2597908079624176,
+        "reciprocity_balance": 0.019045216962695122,
+        "shared_subreddit_jaccard": 0.0
+      },
+      "metrics": {
+        "average_precision": 0.05484614902617267,
+        "brier_score": 0.2015092670917511,
+        "roc_auc": 0.7066157546202938
+      },
+      "ranking": {
+        "evaluable_people": 185,
+        "median_candidates": 35.0,
+        "mrr": 0.39230695737885335,
+        "ndcg_at_10": 0.388092718269152,
+        "recall_at_10": 0.5764928186315654
+      }
+    },
+    "dynamics": {
+      "best_iteration": 20,
+      "gain_importance": {
+        "active_day_fraction": 0.3747463524341583,
+        "effort_balance": 0.0326993465423584,
+        "exposure_reply_count": 0.12563665211200714,
+        "latency_symmetry": 0.04122404381632805,
+        "recency_days": 0.40913763642311096,
+        "reciprocity_balance": 0.01655595377087593
+      },
+      "metrics": {
+        "average_precision": 0.039376455438651405,
+        "brier_score": 0.22332151234149933,
+        "roc_auc": 0.6416260929349311
+      },
+      "ranking": {
+        "evaluable_people": 185,
+        "median_candidates": 35.0,
+        "mrr": 0.3665204377454516,
+        "ndcg_at_10": 0.3618507110135186,
+        "recall_at_10": 0.5469099900046192
+      }
+    },
+    "similarity": {
+      "best_iteration": 90,
+      "gain_importance": {
+        "author_activity_balance": 0.4844098687171936,
+        "lexical_topic_overlap": 0.5155901312828064,
+        "shared_subreddit_jaccard": 0.0
+      },
+      "metrics": {
+        "average_precision": 0.021389724936334648,
+        "brier_score": 0.2427193969488144,
+        "roc_auc": 0.6617812059918776
+      },
+      "ranking": {
+        "evaluable_people": 185,
+        "median_candidates": 35.0,
+        "mrr": 0.3105678298664193,
+        "ndcg_at_10": 0.3292244836344457,
+        "recall_at_10": 0.5228707893797409
+      }
+    }
+  },
+  "panel_path": "data\\processed\\applying_to_college_panel.csv",
+  "split_cutoffs": {
+    "train_end_timestamp": 1514948072,
+    "validation_end_timestamp": 1520112216
+  },
+  "splits": {
+    "test": {
+      "dyads": 19291,
+      "first_anchor_month": "2018-03",
+      "last_anchor_month": "2018-05",
+      "positive_rate": 0.010626717121973977,
+      "positives": 205
+    },
+    "train": {
+      "dyads": 90022,
+      "first_anchor_month": "2013-12",
+      "last_anchor_month": "2018-01",
+      "positive_rate": 0.021317011397214015,
+      "positives": 1919
+    },
+    "validation": {
+      "dyads": 19291,
+      "first_anchor_month": "2018-01",
+      "last_anchor_month": "2018-03",
+      "positive_rate": 0.012700222901871339,
+      "positives": 245
+    }
+  },
+  "study_label": "r/ApplyingToCollege \u00b7 128,604 eligible dyads"
+}
