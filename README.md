@@ -5,10 +5,11 @@ months later—beyond what their profiles have in common?
 
 ## Result
 
-**Adding first-month interaction dynamics improved durable-tie prediction by 4.5 ROC-AUC points
-over profile similarity alone**: 0.662 → 0.707 on a strict chronological test set. The paired
-bootstrap 95% interval was **+1.9 to +7.1 points**. Average precision rose from 0.021 to 0.055
-(+0.033; 95% interval +0.015 to +0.065) against a 1.06% test-set prevalence.
+**Early interaction dynamics add predictive signal beyond profile similarity and improve
+identification of rare durable ties.** Adding first-month dynamics raised ROC-AUC from 0.662 to
+0.707 on a strict chronological test set: **+4.48 points**, with a paired-bootstrap 95% interval of
+**+1.93 to +7.14 points**. Average precision rose from 0.021 to 0.055 (+0.033; 95% interval +0.015
+to +0.065) against a 1.06% test-set prevalence.
 
 ![First-month dynamics add 4.5 ROC-AUC points beyond similarity](artifacts/hero.png)
 
@@ -22,10 +23,51 @@ ROC-AUC, below the 0.662 similarity model, while the combined model performed be
 | Interaction dynamics | 0.642 | 0.039 | 0.367 | 0.547 |
 | Combined | **0.707** | **0.055** | **0.392** | **0.576** |
 
+## How the model identifies rare ties
+
+Ranking makes the rare-event result concrete. Among the 19,291 held-out dyads, the combined model's
+top 1% contained 23 durable ties in 193 predictions: **11.9% precision and 11.2× the test-set base
+rate**. Its top 5% contained 50 of the 205 durable ties (24.4% recall, 4.9× lift), while its top 10%
+contained 70 (34.1% recall, 3.4× lift).
+
+![Lift among the highest-scoring held-out dyads](artifacts/rare-tie-lift.png)
+
+Lift measures concentration, not certainty. Even in the top 1%, most dyads do not satisfy the
+days-90-to-180 reciprocal-interaction label. The model is useful for ranking a scarce outcome, not
+for declaring that a relationship will last.
+
+Held-out SHAP values show what the combined model uses. Pre-contact topic overlap, pre-contact
+activity balance, and interaction recency have the largest average absolute contributions. The
+direction is not uniformly intuitive or linear, which is another reason to avoid turning individual
+features into relationship advice.
+
+![Held-out SHAP explanation of the combined model](artifacts/shap-summary.png)
+
+SHAP explains this model's predictions; it does not establish that a feature causes a relationship
+to persist.
+
 The headline cohort contains 128,604 eligible `r/ApplyingToCollege` dyads, including 2,369 durable
 ties. The final test period contains 19,291 dyads and 205 positives. Aggregate results, split counts,
 ranking metrics, bootstrap intervals, and held-out SHAP values are in
 [`artifacts/results.json`](artifacts/results.json).
+
+## Local scenario explorer
+
+The local Streamlit demo converts objective first-month observations into the same nine features used
+by the combined model. It reports a model-score percentile and the observed outcome rate for that
+held-out percentile band—never the class-weighted XGBoost output as a personal probability. It also
+shows signed local SHAP contributions. Inputs stay on the local machine and are not logged or sent to
+an external service.
+
+```powershell
+python -m pip install -e ".[demo]"
+streamlit run demo/app.py
+```
+
+The accompanying [candidate questionnaire](docs/QUESTIONNAIRE.md) separates behavioral proxies
+represented in the current model from exploratory emotional-safety, responsiveness, vulnerability,
+investment, authenticity, and growth questions. The questionnaire is not scored, and its responses
+are not valid substitutes for the logged model features.
 
 ## Research design
 
@@ -74,7 +116,7 @@ because its 1.27 GB compressed archive requires a scale-out runtime not availabl
 
 ```powershell
 python -m venv .venv
-.venv\Scripts\python -m pip install -e ".[model,dev]"
+.venv\Scripts\python -m pip install -e ".[model,demo,dev]"
 $env:CONNECTION_DYNAMICS_HASH_KEY = '<private-random-key>'
 
 connection-dynamics build-panel `
@@ -87,6 +129,10 @@ connection-dynamics benchmark `
   --output artifacts/results.json `
   --predictions artifacts/private/predictions.csv `
   --hero-chart artifacts/hero.png `
+  --model-artifact artifacts/combined-model.json `
+  --demo-reference artifacts/demo-reference.json `
+  --lift-chart artifacts/rare-tie-lift.png `
+  --shap-chart artifacts/shap-summary.png `
   --study-label 'r/ApplyingToCollege · 128,604 eligible dyads' `
   --bootstrap 2000
 
@@ -104,7 +150,9 @@ every dyad has complete annotation coverage. See the
 - [Leakage audit](docs/LEAKAGE_AUDIT.md)
 - [Data and privacy](docs/DATA_CARD.md)
 - [Annotation protocol](docs/ANNOTATION_PROTOCOL.md)
+- [Candidate questionnaire](docs/QUESTIONNAIRE.md)
 - [Contributing](CONTRIBUTING.md)
 
-The public repository contains code, synthetic fixtures, aggregate metrics, and charts only. It does
-not publish usernames, raw comments, annotation manifests, or row-level predictions.
+The public repository contains code, synthetic fixtures, aggregate metrics, charts, an identifier-free
+tree model, and an aggregate demo reference. It does not publish usernames, raw comments, annotation
+manifests, panels, or row-level predictions.

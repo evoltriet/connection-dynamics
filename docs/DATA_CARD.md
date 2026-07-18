@@ -26,7 +26,9 @@ For ApplyingToCollege:
 The ingestion layer needs public Reddit usernames only to link messages. Derived panels replace them
 with keyed HMAC pseudonyms before writing. The HMAC key is supplied through an environment variable
 and is never committed. Raw archives, row-level panels, predictions, raw text, and annotation records
-are gitignored. Only aggregate metrics and charts are public.
+are gitignored. Public artifacts are limited to aggregate metrics and charts, an XGBoost tree model
+containing no feature rows or identifiers, and a demo reference containing aggregate quantiles,
+outcome rates, confidence intervals, and lift statistics.
 
 The private annotation manifest contains public comment text and may contain links or self-identifying
 statements inside that text. It contains no structured username fields and no outcomes, but it must
