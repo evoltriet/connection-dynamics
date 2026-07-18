@@ -10,9 +10,11 @@ Last updated: 2026-07-18
 - Keyed HMAC pseudonyms and private artifact boundaries
 - Chronological XGBoost ablations, paired bootstrap, ranking metrics, and held-out SHAP
 - Public aggregate result and hero chart for 128,604 ApplyingToCollege dyads
+- Rare-tie lift evidence, held-out SHAP chart, and identifier-free local scenario explorer
+- Two-tier candidate questionnaire separating measured proxies from unvalidated thesis constructs
 - Prior-year node2vec snapshots with an honestly negative ablation
 - Outcome-blinded annotation manifest for 216,456 messages
-- Eight passing tests and clean Ruff output
+- Automated benchmark, transformation, privacy, artifact, and Streamlit checks with clean Ruff output
 
 ## Credential-gated
 

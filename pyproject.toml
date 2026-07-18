@@ -26,6 +26,14 @@ model = [
   "xgboost>=2.1",
 ]
 annotate = ["openai>=1.99", "pydantic>=2.8"]
+demo = [
+  "matplotlib>=3.9",
+  "numpy>=2.0",
+  "pandas>=2.2",
+  "shap>=0.46",
+  "streamlit>=1.40",
+  "xgboost>=2.1",
+]
 spark = ["pyspark>=3.5"]
 dev = ["pytest>=8.3", "ruff>=0.7"]
 

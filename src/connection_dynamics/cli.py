@@ -35,6 +35,10 @@ def build_parser() -> argparse.ArgumentParser:
     benchmark.add_argument("--output", type=Path, required=True)
     benchmark.add_argument("--predictions", type=Path, required=True)
     benchmark.add_argument("--hero-chart", type=Path)
+    benchmark.add_argument("--model-artifact", type=Path)
+    benchmark.add_argument("--demo-reference", type=Path)
+    benchmark.add_argument("--lift-chart", type=Path)
+    benchmark.add_argument("--shap-chart", type=Path)
     benchmark.add_argument("--study-label", default="Temporal dyad benchmark")
     benchmark.add_argument("--bootstrap", type=int, default=1_000)
     graph = commands.add_parser(
@@ -94,6 +98,10 @@ def main(argv: list[str] | None = None) -> int:
             output_path=args.output,
             predictions_path=args.predictions,
             hero_chart_path=args.hero_chart,
+            model_artifact_path=args.model_artifact,
+            demo_reference_path=args.demo_reference,
+            lift_chart_path=args.lift_chart,
+            shap_chart_path=args.shap_chart,
             study_label=args.study_label,
             bootstrap_iterations=args.bootstrap,
         )

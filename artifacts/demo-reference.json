@@ -1,0 +1,418 @@
+{
+  "feature_metadata": {
+    "active_day_fraction": {
+      "family": "interaction_dynamics",
+      "label": "Interaction regularity",
+      "training_reference": {
+        "median": 0.0333333333333333,
+        "missing_fraction": 0.0,
+        "p01": 0.0333333333333333,
+        "p99": 0.1
+      },
+      "unit": "fraction of first 30 days"
+    },
+    "author_activity_balance": {
+      "family": "profile_similarity",
+      "label": "Pre-contact activity balance",
+      "training_reference": {
+        "median": 0.1785714285714285,
+        "missing_fraction": 0.0,
+        "p01": 0.0,
+        "p99": 1.0
+      },
+      "unit": "ratio similarity"
+    },
+    "effort_balance": {
+      "family": "interaction_dynamics",
+      "label": "Message-effort balance",
+      "training_reference": {
+        "median": 0.0,
+        "missing_fraction": 0.0,
+        "p01": 0.0,
+        "p99": 1.0
+      },
+      "unit": "ratio similarity"
+    },
+    "exposure_reply_count": {
+      "family": "interaction_dynamics",
+      "label": "First-month direct replies",
+      "training_reference": {
+        "median": 1.0,
+        "missing_fraction": 0.0,
+        "p01": 1.0,
+        "p99": 8.0
+      },
+      "unit": "replies"
+    },
+    "latency_symmetry": {
+      "family": "interaction_dynamics",
+      "label": "Response-time symmetry",
+      "training_reference": {
+        "median": 0.2480765785692432,
+        "missing_fraction": 0.6780564750838683,
+        "p01": 0.0018187079861627779,
+        "p99": 0.9745942703498739
+      },
+      "unit": "ratio similarity"
+    },
+    "lexical_topic_overlap": {
+      "family": "profile_similarity",
+      "label": "Pre-contact topic overlap",
+      "training_reference": {
+        "median": 0.0964679764445942,
+        "missing_fraction": 0.0,
+        "p01": 0.0,
+        "p99": 0.25819184781672794
+      },
+      "unit": "Jaccard index"
+    },
+    "recency_days": {
+      "family": "interaction_dynamics",
+      "label": "Days since last interaction",
+      "training_reference": {
+        "median": 30.0,
+        "missing_fraction": 0.0,
+        "p01": 4.72985474537037,
+        "p99": 30.0
+      },
+      "unit": "days"
+    },
+    "reciprocity_balance": {
+      "family": "interaction_dynamics",
+      "label": "Reply reciprocity",
+      "training_reference": {
+        "median": 0.0,
+        "missing_fraction": 0.0,
+        "p01": 0.0,
+        "p99": 1.0
+      },
+      "unit": "balance index"
+    },
+    "shared_subreddit_jaccard": {
+      "family": "profile_similarity",
+      "label": "Shared-community overlap",
+      "training_reference": {
+        "median": 1.0,
+        "missing_fraction": 0.0,
+        "p01": 1.0,
+        "p99": 1.0
+      },
+      "unit": "Jaccard index"
+    }
+  },
+  "feature_order": [
+    "shared_subreddit_jaccard",
+    "lexical_topic_overlap",
+    "author_activity_balance",
+    "exposure_reply_count",
+    "reciprocity_balance",
+    "latency_symmetry",
+    "effort_balance",
+    "active_day_fraction",
+    "recency_days"
+  ],
+  "interpretation_boundary": "Scores rank scenarios relative to one held-out Reddit cohort. Band rates are cohort observations, not personal probabilities or causal effects.",
+  "model_smoke_case": {
+    "features": {
+      "active_day_fraction": 0.0333333333333333,
+      "author_activity_balance": 0.1785714285714285,
+      "effort_balance": 0.0,
+      "exposure_reply_count": 1.0,
+      "latency_symmetry": 0.2480765785692432,
+      "lexical_topic_overlap": 0.0964679764445942,
+      "recency_days": 30.0,
+      "reciprocity_balance": 0.0,
+      "shared_subreddit_jaccard": 1.0
+    },
+    "score": 0.2718828320503235
+  },
+  "outcome_definition": "At least one direct reply in each direction during days 90-180 after first contact.",
+  "rare_tie_lift": {
+    "combined": [
+      {
+        "durable_ties": 23,
+        "lift_over_prevalence": 11.214280298243397,
+        "precision": 0.11917098445595854,
+        "recall": 0.11219512195121951,
+        "selected_dyads": 193,
+        "top_fraction": 0.01
+      },
+      {
+        "durable_ties": 50,
+        "lift_over_prevalence": 4.875774042714521,
+        "precision": 0.05181347150259067,
+        "recall": 0.24390243902439024,
+        "selected_dyads": 965,
+        "top_fraction": 0.05
+      },
+      {
+        "durable_ties": 70,
+        "lift_over_prevalence": 3.4130418299001644,
+        "precision": 0.03626943005181347,
+        "recall": 0.34146341463414637,
+        "selected_dyads": 1930,
+        "top_fraction": 0.1
+      },
+      {
+        "durable_ties": 96,
+        "lift_over_prevalence": 2.3409780114904026,
+        "precision": 0.024876911116869654,
+        "recall": 0.4682926829268293,
+        "selected_dyads": 3859,
+        "top_fraction": 0.2
+      }
+    ],
+    "dynamics": [
+      {
+        "durable_ties": 19,
+        "lift_over_prevalence": 9.26397068115759,
+        "precision": 0.09844559585492228,
+        "recall": 0.09268292682926829,
+        "selected_dyads": 193,
+        "top_fraction": 0.01
+      },
+      {
+        "durable_ties": 45,
+        "lift_over_prevalence": 4.388196638443069,
+        "precision": 0.046632124352331605,
+        "recall": 0.21951219512195122,
+        "selected_dyads": 965,
+        "top_fraction": 0.05
+      },
+      {
+        "durable_ties": 61,
+        "lift_over_prevalence": 2.974222166055858,
+        "precision": 0.031606217616580314,
+        "recall": 0.2975609756097561,
+        "selected_dyads": 1930,
+        "top_fraction": 0.1
+      },
+      {
+        "durable_ties": 88,
+        "lift_over_prevalence": 2.1458965105328693,
+        "precision": 0.02280383519046385,
+        "recall": 0.4292682926829268,
+        "selected_dyads": 3859,
+        "top_fraction": 0.2
+      }
+    ],
+    "similarity": [
+      {
+        "durable_ties": 7,
+        "lift_over_prevalence": 3.4130418299001644,
+        "precision": 0.03626943005181347,
+        "recall": 0.03414634146341464,
+        "selected_dyads": 193,
+        "top_fraction": 0.01
+      },
+      {
+        "durable_ties": 26,
+        "lift_over_prevalence": 2.535402502211551,
+        "precision": 0.02694300518134715,
+        "recall": 0.12682926829268293,
+        "selected_dyads": 965,
+        "top_fraction": 0.05
+      },
+      {
+        "durable_ties": 44,
+        "lift_over_prevalence": 2.145340578794389,
+        "precision": 0.022797927461139896,
+        "recall": 0.2146341463414634,
+        "selected_dyads": 1930,
+        "top_fraction": 0.1
+      },
+      {
+        "durable_ties": 75,
+        "lift_over_prevalence": 1.8288890714768768,
+        "precision": 0.019435086810054417,
+        "recall": 0.36585365853658536,
+        "selected_dyads": 3859,
+        "top_fraction": 0.2
+      }
+    ]
+  },
+  "reference_bands": [
+    {
+      "durable_ties": 46,
+      "dyads": 9606,
+      "label": "0th-50th percentile",
+      "lower_percentile": 0.0,
+      "observed_rate": 0.004788673745575682,
+      "upper_percentile": 50.0,
+      "wilson_95": [
+        0.003592265119433463,
+        0.006380996066131991
+      ]
+    },
+    {
+      "durable_ties": 63,
+      "dyads": 5826,
+      "label": "50th-80th percentile",
+      "lower_percentile": 50.0,
+      "observed_rate": 0.010813594232749742,
+      "upper_percentile": 80.0,
+      "wilson_95": [
+        0.00846156376294226,
+        0.013810304132237081
+      ]
+    },
+    {
+      "durable_ties": 26,
+      "dyads": 1931,
+      "label": "80th-90th percentile",
+      "lower_percentile": 80.0,
+      "observed_rate": 0.013464526152252718,
+      "upper_percentile": 90.0,
+      "wilson_95": [
+        0.009205004271491535,
+        0.019655995458548396
+      ]
+    },
+    {
+      "durable_ties": 20,
+      "dyads": 963,
+      "label": "90th-95th percentile",
+      "lower_percentile": 90.0,
+      "observed_rate": 0.020768431983385256,
+      "upper_percentile": 95.0,
+      "wilson_95": [
+        0.013483990814828187,
+        0.031861043182958584
+      ]
+    },
+    {
+      "durable_ties": 27,
+      "dyads": 772,
+      "label": "95th-99th percentile",
+      "lower_percentile": 95.0,
+      "observed_rate": 0.034974093264248704,
+      "upper_percentile": 99.0,
+      "wilson_95": [
+        0.02414594937368101,
+        0.05040724466239841
+      ]
+    },
+    {
+      "durable_ties": 23,
+      "dyads": 193,
+      "label": "Top 1%",
+      "lower_percentile": 99.0,
+      "observed_rate": 0.11917098445595854,
+      "upper_percentile": 100.0,
+      "wilson_95": [
+        0.08073625685370264,
+        0.17246984677559155
+      ]
+    }
+  ],
+  "schema_version": 1,
+  "score_quantiles": [
+    0.054536692798137665,
+    0.14506728947162628,
+    0.16498949825763704,
+    0.18130002915859222,
+    0.19310909509658813,
+    0.19310909509658813,
+    0.19310909509658813,
+    0.2077903002500534,
+    0.21498549580574036,
+    0.2216420367360115,
+    0.22619007527828217,
+    0.22954894900321962,
+    0.23470793664455414,
+    0.2418698847293854,
+    0.2495059072971344,
+    0.2626488506793976,
+    0.27084463834762573,
+    0.2767322361469269,
+    0.2819855809211731,
+    0.2862816363573074,
+    0.29045936465263367,
+    0.2944124937057495,
+    0.29863154888153076,
+    0.30704188346862793,
+    0.3097487986087799,
+    0.3128354847431183,
+    0.3141546845436096,
+    0.31869271397590637,
+    0.322744220495224,
+    0.32467883825302124,
+    0.3287123739719391,
+    0.3318690061569214,
+    0.33626097440719604,
+    0.340979889035225,
+    0.34485459327697754,
+    0.3488313555717468,
+    0.35517234802246095,
+    0.3633708357810974,
+    0.36998996138572693,
+    0.374677911400795,
+    0.3819453716278076,
+    0.3886468380689621,
+    0.3938248991966247,
+    0.3987516313791276,
+    0.4031788408756256,
+    0.40583936870098114,
+    0.409775048494339,
+    0.41160707175731664,
+    0.41363697052001946,
+    0.4162144064903259,
+    0.4189552664756775,
+    0.42223225235939027,
+    0.4252733886241913,
+    0.42927178740501404,
+    0.43232136964797974,
+    0.43525660037994385,
+    0.43824344873428345,
+    0.4398570954799652,
+    0.44125009775161744,
+    0.44424617588520043,
+    0.44879603385925293,
+    0.45260143280029297,
+    0.4569592773914337,
+    0.46054306626319885,
+    0.46258214116096497,
+    0.46503230929374695,
+    0.4673256278038025,
+    0.4714476764202118,
+    0.4764864146709442,
+    0.4806065261363983,
+    0.4838216304779053,
+    0.4882628619670868,
+    0.4930911123752594,
+    0.4948747456073761,
+    0.4986429274082184,
+    0.5030103027820587,
+    0.5100142478942871,
+    0.5199995398521423,
+    0.5278944611549378,
+    0.5343704462051392,
+    0.540604293346405,
+    0.5508243381977082,
+    0.5607057094573975,
+    0.5708215355873107,
+    0.5785609483718872,
+    0.5821284055709839,
+    0.5894775986671448,
+    0.5991581439971924,
+    0.6076305270195008,
+    0.6202089190483093,
+    0.6328252553939819,
+    0.6445867717266085,
+    0.662193489074707,
+    0.675803542137146,
+    0.6941341161727906,
+    0.7079832851886749,
+    0.7266070127487179,
+    0.7532800555229187,
+    0.7813766956329345,
+    0.8372267484664914,
+    0.9588540196418762
+  ],
+  "study_label": "r/ApplyingToCollege \u00b7 128,604 eligible dyads",
+  "test_cohort": {
+    "durable_ties": 205,
+    "dyads": 19291,
+    "prevalence": 0.010626717121973977
+  }
+}

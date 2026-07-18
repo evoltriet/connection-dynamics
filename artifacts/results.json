@@ -124,6 +124,110 @@
     }
   },
   "panel_path": "data\\processed\\applying_to_college_panel.csv",
+  "rare_tie_lift": {
+    "combined": [
+      {
+        "durable_ties": 23,
+        "lift_over_prevalence": 11.214280298243397,
+        "precision": 0.11917098445595854,
+        "recall": 0.11219512195121951,
+        "selected_dyads": 193,
+        "top_fraction": 0.01
+      },
+      {
+        "durable_ties": 50,
+        "lift_over_prevalence": 4.875774042714521,
+        "precision": 0.05181347150259067,
+        "recall": 0.24390243902439024,
+        "selected_dyads": 965,
+        "top_fraction": 0.05
+      },
+      {
+        "durable_ties": 70,
+        "lift_over_prevalence": 3.4130418299001644,
+        "precision": 0.03626943005181347,
+        "recall": 0.34146341463414637,
+        "selected_dyads": 1930,
+        "top_fraction": 0.1
+      },
+      {
+        "durable_ties": 96,
+        "lift_over_prevalence": 2.3409780114904026,
+        "precision": 0.024876911116869654,
+        "recall": 0.4682926829268293,
+        "selected_dyads": 3859,
+        "top_fraction": 0.2
+      }
+    ],
+    "dynamics": [
+      {
+        "durable_ties": 19,
+        "lift_over_prevalence": 9.26397068115759,
+        "precision": 0.09844559585492228,
+        "recall": 0.09268292682926829,
+        "selected_dyads": 193,
+        "top_fraction": 0.01
+      },
+      {
+        "durable_ties": 45,
+        "lift_over_prevalence": 4.388196638443069,
+        "precision": 0.046632124352331605,
+        "recall": 0.21951219512195122,
+        "selected_dyads": 965,
+        "top_fraction": 0.05
+      },
+      {
+        "durable_ties": 61,
+        "lift_over_prevalence": 2.974222166055858,
+        "precision": 0.031606217616580314,
+        "recall": 0.2975609756097561,
+        "selected_dyads": 1930,
+        "top_fraction": 0.1
+      },
+      {
+        "durable_ties": 88,
+        "lift_over_prevalence": 2.1458965105328693,
+        "precision": 0.02280383519046385,
+        "recall": 0.4292682926829268,
+        "selected_dyads": 3859,
+        "top_fraction": 0.2
+      }
+    ],
+    "similarity": [
+      {
+        "durable_ties": 7,
+        "lift_over_prevalence": 3.4130418299001644,
+        "precision": 0.03626943005181347,
+        "recall": 0.03414634146341464,
+        "selected_dyads": 193,
+        "top_fraction": 0.01
+      },
+      {
+        "durable_ties": 26,
+        "lift_over_prevalence": 2.535402502211551,
+        "precision": 0.02694300518134715,
+        "recall": 0.12682926829268293,
+        "selected_dyads": 965,
+        "top_fraction": 0.05
+      },
+      {
+        "durable_ties": 44,
+        "lift_over_prevalence": 2.145340578794389,
+        "precision": 0.022797927461139896,
+        "recall": 0.2146341463414634,
+        "selected_dyads": 1930,
+        "top_fraction": 0.1
+      },
+      {
+        "durable_ties": 75,
+        "lift_over_prevalence": 1.8288890714768768,
+        "precision": 0.019435086810054417,
+        "recall": 0.36585365853658536,
+        "selected_dyads": 3859,
+        "top_fraction": 0.2
+      }
+    ]
+  },
   "split_cutoffs": {
     "train_end_timestamp": 1514948072,
     "validation_end_timestamp": 1520112216
